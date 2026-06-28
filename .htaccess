@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /HoanKiemLAB/
+
+# Redirect to public folder for assets
+RewriteRule ^public/(.*)$ public/$1 [L]
+
+# Allow direct access to existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything else through index.php
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
