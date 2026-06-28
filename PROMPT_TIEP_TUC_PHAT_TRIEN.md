@@ -357,10 +357,54 @@ Uu tien gan:
 
 5. Chay lint toan bo PHP sau moi thay doi.
 
-## 11. Prompt ngan cho lan sau
+## 11. Cach lay source tu GitHub de lam tiep
+
+Repo GitHub da luu source:
+
+- `https://github.com/fivesmarthome-gif/fiveapp.git`
+- Nhanh chinh: `main`
+- Thu muc local khuyen nghi khi dung XAMPP: `C:\xampp\htdocs\HoanKiemLAB`
+
+Neu may moi chua co source, clone ve dung thu muc XAMPP:
+
+```powershell
+cd C:\xampp\htdocs
+git clone https://github.com/fivesmarthome-gif/fiveapp.git HoanKiemLAB
+cd C:\xampp\htdocs\HoanKiemLAB
+```
+
+Neu da co source local roi, cap nhat ban moi nhat:
+
+```powershell
+cd C:\xampp\htdocs\HoanKiemLAB
+git pull origin main
+```
+
+Sau khi clone/pull:
+
+1. Mo XAMPP va start Apache + MySQL.
+2. Tao database `hoankiemlab` neu chua co.
+3. Import `database/schema.sql` cho DB moi.
+4. Neu la DB cu, xem them cac migration trong `database/migrations/`, dac biet:
+   - `2026_06_28_delivery_feedback_updates.sql`
+   - `2026_06_28_shipper_location.sql`
+5. Kiem tra config DB trong `config/database.php` co dung may local khong.
+6. Truy cap app tai `http://localhost/HoanKiemLAB/login`.
+7. Doc file nay truoc khi code tiep, khong can doc lai toan bo `HoanKiemLAB Project Development.md` tru khi can lich su cu.
+
+Neu sua code, hay commit va push lai GitHub:
+
+```powershell
+git status
+git add .
+git commit -m "Mo ta ngan gon thay doi"
+git push origin main
+```
+
+## 12. Prompt ngan cho lan sau
 
 Neu muon bat dau nhanh, co the dua noi dung sau cho Codex:
 
 ```text
-Ban dang lam tiep du an HoanKiemLAB tai C:\xampp\htdocs\HoanKiemLAB. Day la app PHP thuan MVC tu xay dung, route trong routes/web.php, core trong core, controller chia Admin/Customer/Staff/Public, view trong views theo dot notation. Hay doc PROMPT_TIEP_TUC_PHAT_TRIEN.md truoc, sau do uu tien dong bo schema DB voi code giao hang/feedback, kiem tra flow delivery end-to-end va sua cac lech enum/status. Khong doc lai HoanKiemLAB Project Development.md tru khi can lich su chat cu.
+Ban dang lam tiep du an HoanKiemLAB. Repo GitHub: https://github.com/fivesmarthome-gif/fiveapp.git, branch main. Neu chua co source, clone vao C:\xampp\htdocs\HoanKiemLAB; neu da co source thi git pull origin main. Day la app PHP thuan MVC tu xay dung, route trong routes/web.php, core trong core, controller chia Admin/Customer/Staff/Public/Shipper, view trong views theo dot notation. Hay doc PROMPT_TIEP_TUC_PHAT_TRIEN.md truoc, sau do uu tien dong bo schema DB voi code giao hang/feedback/shipper, kiem tra flow delivery end-to-end va sua cac lech enum/status. Sau moi cum sua code, update PROMPT_TIEP_TUC_PHAT_TRIEN.md, commit va push lai GitHub. Khong doc lai HoanKiemLAB Project Development.md tru khi can lich su chat cu.
 ```
